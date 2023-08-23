@@ -3,6 +3,7 @@ const express = require("express");
 const notFoundMiddleware = require("./middleware/notFound");
 const errorHandlerMiddleware = require("./middleware/errorHandler");
 const route = require("./routes/url.route");
+const connectDB = require("./db/connect");
 
 const app = express();
 
@@ -15,6 +16,14 @@ app.use(route);
 app.use(notFoundMiddleware);
 
 const port = 3000 || process.env.PORT;
-app.listen(port, () =>
-  console.log(`Server running on http://localhost:${port}`)
-);
+
+(async () => {
+  try {
+    await connectDB(process.env.MONGODB_URL);
+    app.listen(port, () =>
+      console.log(`Server running on http://localhost:${port}`)
+    );
+  } catch (error) {
+    console.error(error);
+  }
+})();
