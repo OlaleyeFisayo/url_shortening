@@ -1,18 +1,18 @@
-require("dotenv").config()
+require("dotenv").config();
 const express = require("express");
 const notFoundMiddleware = require("./middleware/notFound");
 const errorHandlerMiddleware = require("./middleware/errorHandler");
+const route = require("./routes/url.route");
 
 const app = express();
 
 //Middleware
-app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
 app.use(express.json());
 
-app.get("/", (req, res) => {
-  res.send("Hello, World");
-});
+//routes
+app.use(route);
+app.use(notFoundMiddleware);
 
 const port = 3000 || process.env.PORT;
 app.listen(port, () =>
