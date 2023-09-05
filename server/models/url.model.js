@@ -1,4 +1,4 @@
-const { Schema, model, default: mongoose } = require("mongoose");
+const { Schema, model } = require("mongoose");
 const randomString = require("randomstring");
 
 const UrlSchema = new Schema({
@@ -17,4 +17,4 @@ const UrlSchema = new Schema({
   createdAt: { type: Date, default: Date.now() },
 });
 
-module.exports = mongoose.model("Url", UrlSchema);
+module.exports = model("Url", UrlSchema);
