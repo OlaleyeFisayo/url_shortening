@@ -2,9 +2,20 @@ const Url = require("../models/url.model");
 const CustomAPIError = require("../errors/custom-error");
 
 const postUrl = async (req, res) => {
-  const url = await Url.create(req.body);
+  const data = req.body;
+  const urlRegex = /(http:|https:)+[^\s]+[\w]/;
+  if (!data.originalUrl.match(urlRegex)) {
+    throw new CustomAPIError("Invalid URL format", 400);
+  }
+  await Url.create(data);
   res.status(201).json({
     successful: true,
+  });
+};
+
+const getAllUrl = async (req, res) => {
+  const url = await Url.find({});
+  res.status(200).json({
     data: url,
   });
 };
@@ -15,14 +26,7 @@ const getUrl = async (req, res) => {
   if (!url) {
     throw new CustomAPIError("Url not Found", 404);
   }
-  res.status(200).json({ data: url });
+  res.redirect(url.originalUrl);
 };
 
-const getAllUrl = async (req, res) => {
-  const url = await Url.find({});
-  res.status(200).json({
-    data: url,
-  });
-};
-
-module.exports = { getUrl, postUrl, getAllUrl };
+module.exports = { getAllUrl, postUrl, getUrl };
