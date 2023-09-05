@@ -5,5 +5,9 @@ export const useUrlStore = defineStore("urls", {
     url: [],
     errorMessage: ""
   }),
-  actions: {},
+  actions: {
+    createNewURL(url) {
+
+    }
+  },
 });

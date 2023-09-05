@@ -2,8 +2,10 @@
 import Button from "./Button.vue";
 import { ref } from "vue";
 import { useUrlStore } from "../stores";
+import { storeToRefs } from "pinia";
 
-const store = useUrlStore
+const store = useUrlStore();
+const { errorMessage } = storeToRefs(store);
 const formControl = ref("");
 </script>
 
@@ -15,10 +17,9 @@ const formControl = ref("");
           type="text"
           v-model="formControl"
           placeholder="Shorten a link here..."
+          :class="{ 'failed': errorMessage }"
         />
-        <p class="error-message">
-            {{ store.errorMessage }}
-        </p>
+        <p class="error-message" v-show="errorMessage">{{ errorMessage }}</p>
       </div>
       <Button :border-radius="'10px'" :padding="'15px 25px'"
         >Shorten It!</Button
@@ -42,7 +43,10 @@ const formControl = ref("");
     background-size: cover;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    position: relative;
     gap: 1.5rem;
+    margin-bottom: 20px;
 
     .input-section {
       width: 80%;
@@ -61,6 +65,19 @@ const formControl = ref("");
           font-weight: 600;
           color: hsl(0, 0%, 75%);
         }
+
+        &.failed {
+          border: 1px solid hsl(0, 87%, 67%);
+          box-shadow: 0 0 0 0;
+        }
+      }
+
+      .error-message {
+        position: absolute;
+        bottom: 24px;
+        color: hsl(0, 87%, 67%);
+        font-style: italic;
+        font-size: 14px;
       }
     }
   }
