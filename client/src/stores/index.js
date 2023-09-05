@@ -1,13 +1,23 @@
 import { defineStore } from "pinia";
+import axios from "axios";
 
 export const useUrlStore = defineStore("urls", {
-  state: ()=> ({
+  state: () => ({
     url: [],
-    errorMessage: ""
+    errorMessage: "",
   }),
   actions: {
-    createNewURL(url) {
-        
-    }
+    async createNewURL(url) {
+      try {
+        await axios.post("http://localhost:3000", url, {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+        this.errorMessage = ""
+      } catch (error) {
+        this.errorMessage = error;
+      }
+    },
   },
 });

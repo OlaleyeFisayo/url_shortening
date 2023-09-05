@@ -6,7 +6,10 @@ import { storeToRefs } from "pinia";
 
 const store = useUrlStore();
 const { errorMessage } = storeToRefs(store);
-const formControl = ref("");
+const { createNewURL } = store;
+const formControl = ref({
+  originalUrl: "",
+});
 </script>
 
 <template>
@@ -15,15 +18,13 @@ const formControl = ref("");
       <div class="input-section">
         <input
           type="text"
-          v-model="formControl"
+          v-model="formControl.originalUrl"
           placeholder="Shorten a link here..."
-          :class="{ 'failed': errorMessage }"
+          :class="{ failed: errorMessage }"
         />
-        <p class="error-message" v-show="errorMessage ">{{ errorMessage }}</p>
+        <p class="error-message" v-show="errorMessage">{{ errorMessage }}</p>
       </div>
-      <Button :border-radius="'10px'" :padding="'15px 25px'"
-        >Shorten It!</Button
-      >
+      <button @click="createNewURL(formControl.value)">Shorten It</button>
     </section>
   </section>
 </template>
@@ -47,6 +48,24 @@ const formControl = ref("");
     position: relative;
     gap: 1.5rem;
     margin-bottom: 20px;
+
+    button {
+      border: none;
+      color: #fff;
+      background: hsl(180, 66%, 49%);
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      cursor: pointer;
+      margin: auto;
+      transition: background ease-in-out 500ms;
+      border-radius: 10px;
+      padding: 15px 25px;
+
+      &:hover {
+        background: hsl(180, 66%, 70%);
+      }
+    }
 
     .input-section {
       width: 80%;
