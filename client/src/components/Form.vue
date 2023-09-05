@@ -7,7 +7,7 @@ const store = useUrlStore();
 const { errorMessage } = storeToRefs(store);
 const { createNewURL } = store;
 const formControl = ref({
-  originalUrl: "me",
+  originalUrl: "",
 });
 </script>
 
