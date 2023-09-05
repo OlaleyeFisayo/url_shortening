@@ -1,3 +1,4 @@
+// eslint-disable-next-line vue/multi-word-component-names
 <script setup></script>
 
 <template>
@@ -17,12 +18,16 @@ nav {
     max-width: 1440px;
     width: 100%;
     margin: auto;
-    padding: 25px;
+    padding: 25px 2rem;
+
+    @media (max-width: 560px) {
+      padding: 25px 1rem;
+    }
 
     .logo {
       text-transform: capitalize;
       font-size: 2rem;
-      color: hsl(260, 8%, 14%);
+      color: hsl(255, 11%, 22%);
       font-weight: 700;
     }
   }
