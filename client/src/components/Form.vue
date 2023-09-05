@@ -7,7 +7,7 @@ const store = useUrlStore();
 const { errorMessage } = storeToRefs(store);
 const { createNewURL } = store;
 const formControl = ref({
-  originalUrl: "",
+  originalUrl: "me",
 });
 </script>
 
@@ -23,7 +23,9 @@ const formControl = ref({
         />
         <p class="error-message" v-show="errorMessage">{{ errorMessage }}</p>
       </div>
-      <button @click="createNewURL(formControl.value)">Shorten It</button>
+      <button @click="createNewURL(formControl.originalUrl)">
+        Shorten It
+      </button>
     </section>
   </section>
 </template>

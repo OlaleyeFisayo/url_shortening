@@ -7,14 +7,16 @@ export const useUrlStore = defineStore("urls", {
     errorMessage: "",
   }),
   actions: {
-    async createNewURL(url) {
+    async createNewURL(oldUrl) {
       try {
-        await axios.post("http://localhost:3000", url, {
+        await axios.post("http://localhost:3000", {
+          originalUrl: oldUrl
+        }, {
           headers: {
             "Content-Type": "application/json",
           },
         });
-        this.errorMessage = ""
+        this.errorMessage = "";
       } catch (error) {
         this.errorMessage = error;
       }
