@@ -7,7 +7,7 @@ export const useUrlStore = defineStore("urls", {
   }),
   actions: {
     createNewURL(url) {
-
+        
     }
   },
 });
