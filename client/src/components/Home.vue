@@ -1,3 +1,7 @@
+<script setup>
+import Button from "./Button.vue";
+</script>
+
 <template>
   <section id="home">
     <section class="home-content">
@@ -7,7 +11,9 @@
           Build your brand’s recognition and get detailed insights on how your
           links are performing.
         </p>
-        <button>Get Started</button>
+        <Button :border-radius="'2rem'" :padding="'15px 45px'"
+          >Get started</Button
+        >
       </section>
       <section class="img-side">
         <img
@@ -81,28 +87,6 @@
         @media (max-width: 560px) {
           font-size: 1rem;
           margin-bottom: 1rem;
-        }
-      }
-
-      button {
-        padding: 15px 45px;
-        border: none;
-        border-radius: 2rem;
-        color: #fff;
-        background: hsl(180, 66%, 49%);
-        font-size: 1rem;
-        font-weight: 600;
-        letter-spacing: 1px;
-        cursor: pointer;
-        margin: auto;
-        transition: background ease-in-out 500ms;
-
-        &:hover {
-          background: hsl(180, 66%, 70%);
-        }
-
-        @media (max-width: 560px) {
-          padding: 15px 35px;
         }
       }
     }

@@ -3,6 +3,9 @@ const CustomAPIError = require("../errors/custom-error");
 
 const postUrl = async (req, res) => {
   const data = req.body;
+  if(!data.originalUrl) {
+    throw new CustomAPIError("Please add a link", 400)
+  }
   const urlRegex = /(http:|https:)+[^\s]+[\w]/;
   if (!data.originalUrl.match(urlRegex)) {
     throw new CustomAPIError("Invalid URL format", 400);
