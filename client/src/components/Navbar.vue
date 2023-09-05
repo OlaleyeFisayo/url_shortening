@@ -1,6 +1,3 @@
-// eslint-disable-next-line vue/multi-word-component-names
-<script setup></script>
-
 <template>
   <nav>
     <section class="nav-content">

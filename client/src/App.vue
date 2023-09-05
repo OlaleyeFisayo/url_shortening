@@ -7,7 +7,3 @@
   <Navbar />
   <Home />
 </template>
-
-<style lang="scss" scoped>
-
-</style>

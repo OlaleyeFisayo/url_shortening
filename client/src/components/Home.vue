@@ -1,4 +1,3 @@
-<script setup></script>
 <template>
   <section id="home">
     <section class="home-content">
