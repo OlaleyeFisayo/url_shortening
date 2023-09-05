@@ -19,7 +19,7 @@ const formControl = ref("");
           placeholder="Shorten a link here..."
           :class="{ 'failed': errorMessage }"
         />
-        <p class="error-message" v-show="errorMessage">{{ errorMessage }}</p>
+        <p class="error-message" v-show="errorMessage ">{{ errorMessage }}</p>
       </div>
       <Button :border-radius="'10px'" :padding="'15px 25px'"
         >Shorten It!</Button
