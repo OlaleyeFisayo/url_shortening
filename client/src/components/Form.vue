@@ -23,9 +23,7 @@ const formControl = ref({
         />
         <p class="error-message" v-show="errorMessage">{{ errorMessage }}</p>
       </div>
-      <button @click="createNewURL(formControl.originalUrl)">
-        Shorten It
-      </button>
+      <button @click="createNewURL(formControl.originalUrl)">Shorten It</button>
     </section>
   </section>
 </template>
@@ -48,7 +46,14 @@ const formControl = ref({
     align-items: center;
     position: relative;
     gap: 1.5rem;
-    margin-bottom: 20px;
+
+    @media (max-width: 800px) {
+      flex-direction: column;
+      justify-content: none;
+      align-items: center;
+      background-image: url("../assets/svg/bg-shorten-mobile.svg");
+      gap: 0;
+    }
 
     button {
       border: none;
@@ -66,12 +71,23 @@ const formControl = ref({
       &:hover {
         background: hsl(180, 66%, 70%);
       }
+
+      @media (max-width: 800px) {
+        display: block;
+        width: 100%;
+        margin-top: 20px;
+      }
     }
 
     .input-section {
       width: 80%;
       display: flex;
       flex-direction: column;
+
+      @media (max-width: 800px) {
+        width: 100%;
+      }
+
       input {
         display: block;
         padding: 15px 25px;
@@ -98,6 +114,15 @@ const formControl = ref({
         color: hsl(0, 87%, 67%);
         font-style: italic;
         font-size: 14px;
+        width: 76.5%;
+
+        @media (max-width: 800px) {
+          position: relative;
+          margin: 5px 0 0;
+          width: 100%;
+          text-align: center;
+          bottom: 0;
+        }
       }
     }
   }
