@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const useUrlStore = defineStore("urls", {
   state: () => ({
-    url: [],
+    urls: [],
     errorMessage: "",
   }),
   actions: {
@@ -21,8 +21,14 @@ export const useUrlStore = defineStore("urls", {
           }
         )
         .then((res) => {
-          console.log(res);
           this.errorMessage = "";
+          const { _id, originalUrl, shortenedUrl } = res.data.data;
+          this.urls.unshift({
+            id: _id,
+            originalUrl: originalUrl,
+            shortenedUrl: shortenedUrl,
+            activeState: false,
+          });
         })
         .catch((err) => {
           const errMessage = err.response.data.msg;

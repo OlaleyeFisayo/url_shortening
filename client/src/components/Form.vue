@@ -31,12 +31,14 @@ const formControl = ref({
 <style lang="scss" scoped>
 #form {
   width: 100%;
+  padding: 0 2rem;
 
   .form-content {
     width: 100%;
     max-width: 1440px;
     margin: auto;
     padding: 3rem 2rem;
+    background-color: #fff;
     background-image: url("../assets/svg/bg-shorten-desktop.svg");
     background-position: center;
     background-repeat: no-repeat;
@@ -46,6 +48,7 @@ const formControl = ref({
     align-items: center;
     position: relative;
     gap: 1.5rem;
+    z-index: 1;
 
     @media (max-width: 800px) {
       flex-direction: column;
