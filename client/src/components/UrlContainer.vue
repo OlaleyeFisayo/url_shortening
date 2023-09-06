@@ -13,8 +13,8 @@ const { urls } = storeToRefs(store);
       <UrlList
         v-for="url of urls"
         :url="url"
-        :key="url.id"
-        :id="url.id"
+        :key="url._id"
+        :id="url._id"
         :old-url="url.originalUrl"
         :short-url="url.shortenedUrl"
       />

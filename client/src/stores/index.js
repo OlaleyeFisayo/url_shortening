@@ -22,13 +22,8 @@ export const useUrlStore = defineStore("urls", {
         )
         .then((res) => {
           this.errorMessage = "";
-          const { _id, originalUrl, shortenedUrl } = res.data.data;
-          this.urls.unshift({
-            id: _id,
-            originalUrl: originalUrl,
-            shortenedUrl: shortenedUrl,
-            activeState: false,
-          });
+          const data = res.data.data;
+          this.urls.unshift(data);
         })
         .catch((err) => {
           const errMessage = err.response.data.msg;

@@ -40,12 +40,7 @@ defineProps({
   box-shadow: 0 5px 6px -6px #777;
   align-items: center;
   gap: 1rem;
-  transform: translateY(calc(100% + 60px));
-  transition: 500ms ease-in-out;
-
-  &.active {
-    transform: translateY(0);
-  }
+  animation: dropDown 500ms linear;
 
   &:not(:last-of-type) {
     margin-bottom: 20px;
@@ -101,6 +96,16 @@ defineProps({
     &:hover {
       background: hsl(180, 66%, 70%);
     }
+  }
+}
+
+@keyframes dropDown {
+  0% {
+    transform: translateY(calc(-100% + -60px));
+  }
+
+  100% {
+    transform: translateY(0);
   }
 }
 </style>
