@@ -1,4 +1,6 @@
 <script setup>
+import { useUrlStore } from "../stores";
+
 defineProps({
   id: {
     type: String,
@@ -12,10 +14,17 @@ defineProps({
     type: String,
     required: true,
   },
+  copied: {
+    type: Boolean,
+    required: true,
+  },
 });
+
+const store = useUrlStore();
+const { copyLink } = store;
 </script>
 <template>
-  <section class="urlList active">
+  <section class="urlList" :id="id">
     <p class="oldUrl">{{ oldUrl }}</p>
     <a
       class="shortUrl"
@@ -23,7 +32,8 @@ defineProps({
       target="_blank"
       >{{ shortUrl }}</a
     >
-    <button>Copy</button>
+    <button v-if="!copied" @click="copyLink(id)">Copy</button>
+    <button class="copied" v-else>Copied!</button>
   </section>
 </template>
 
@@ -95,6 +105,10 @@ defineProps({
 
     &:hover {
       background: hsl(180, 66%, 70%);
+    }
+
+    &.copied {
+      background: hsl(257, 27%, 26%);
     }
   }
 }

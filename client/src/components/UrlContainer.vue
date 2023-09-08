@@ -17,6 +17,7 @@ const { urls } = storeToRefs(store);
         :id="url._id"
         :old-url="url.originalUrl"
         :short-url="url.shortenedUrl"
+        :copied="url.copied"
       />
     </section>
   </section>

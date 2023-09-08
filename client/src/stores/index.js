@@ -22,13 +22,28 @@ export const useUrlStore = defineStore("urls", {
         )
         .then((res) => {
           this.errorMessage = "";
-          const data = res.data.data;
-          this.urls.unshift(data);
+          const { _id, originalUrl, shortenedUrl } = res.data.data;
+          this.urls.unshift({
+            _id,
+            originalUrl,
+            shortenedUrl,
+            copied: false,
+          });
         })
         .catch((err) => {
           const errMessage = err.response.data.msg;
           this.errorMessage = errMessage;
         });
+    },
+    async copyLink(id) {
+      const urlData = this.urls.find((url) => url._id === id);
+      urlData.copied = true;
+      await navigator.clipboard.writeText(
+        `http://localhost:3000/${urlData.shortenedUrl}`
+      );
+      setTimeout(() => {
+        urlData.copied = false;
+      }, 2000);
     },
   },
 });
