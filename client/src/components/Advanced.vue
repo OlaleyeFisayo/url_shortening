@@ -1,4 +1,6 @@
-<script setup></script>
+<script setup>
+import Attribute from "./Attribute.vue";
+</script>
 
 <template>
   <section id="advanced">
@@ -8,6 +10,11 @@
         Track how your links are performing across the web with our advanced
         statistics dashboard.
       </p>
+      <section class="attributes">
+        <Attribute />
+        <Attribute />
+        <Attribute />
+      </section>
     </section>
   </section>
 </template>
@@ -38,6 +45,19 @@
       font-size: 1.2rem;
       max-width: 500px;
       margin: auto;
+    }
+  }
+
+  .attributes {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    align-items: center;
+    margin-top: 100px;
+
+    @media (max-width: 800px) {
+      flex-direction: column;
+      gap: 5rem;
     }
   }
 }
