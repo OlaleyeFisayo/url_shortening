@@ -1,19 +1,28 @@
 const Url = require("../models/url.model");
 const CustomAPIError = require("../errors/custom-error");
+const randomString = require("randomstring");
 
 const postUrl = async (req, res) => {
   const data = req.body;
-  if (!data.originalUrl) {
+  const originalUrl = data.originalUrl;
+  const shortenedUrl = randomString.generate({
+    length: 7,
+    charset: "alphanumeric",
+  });
+  if (!originalUrl) {
     throw new CustomAPIError("Please add a link", 400);
   }
   const urlRegex = /(http:|https:)+[^\s]+[\w]/;
-  if (!data.originalUrl.match(urlRegex)) {
+  if (!originalUrl.match(urlRegex)) {
     throw new CustomAPIError(
       "Invalid URL format (Must start with http or https)",
       400
     );
   }
-  const url = await Url.create(data);
+  const url = await Url.create({
+    originalUrl,
+    shortenedUrl,
+  });
   res.status(201).json({
     successful: true,
     data: url,

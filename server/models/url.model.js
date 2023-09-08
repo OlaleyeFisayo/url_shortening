@@ -1,5 +1,4 @@
 const { Schema, model } = require("mongoose");
-const randomString = require("randomstring");
 
 const UrlSchema = new Schema({
   originalUrl: {
@@ -7,13 +6,7 @@ const UrlSchema = new Schema({
     required: [true, "You need to put a url in"],
     trim: true,
   },
-  shortenedUrl: {
-    type: String,
-    default: randomString.generate({
-      length: 7,
-      charset: "alphanumeric",
-    }),
-  },
+  shortenedUrl: String,
   createdAt: { type: Date, default: Date.now() },
 });
 
