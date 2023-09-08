@@ -1,14 +1,28 @@
-<script setup></script>
+<script setup>
+defineProps({
+  image: {
+    type: String,
+    required: true,
+  },
+  header: {
+    type: String,
+    required: true,
+  },
+  paragrapgh: {
+    type: String,
+    required: true,
+  },
+});
+</script>
 
 <template>
   <div class="attribute">
     <div class="img-container">
-      <img src="../assets/svg/icon-brand-recognition.svg" alt="" />
+      <img :src="image" alt="" />
     </div>
-    <h1>Brand Recognition</h1>
+    <h1>{{ header }}</h1>
     <p>
-      Boost your brand recognition with each click. Generic links don’t mean a
-      thing. Branded links help instil confidence in your content.
+      {{ paragrapgh }}
     </p>
   </div>
 </template>
@@ -58,12 +72,15 @@
   }
 
   .img-container {
-    padding: 0.75rem 1rem;
+    padding: 1rem;
     border-radius: 50%;
     display: inline-block;
     background: hsl(255, 11%, 22%);
     position: absolute;
     top: -40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     img {
       width: 40px;

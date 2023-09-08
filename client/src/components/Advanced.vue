@@ -11,9 +11,26 @@ import Attribute from "./Attribute.vue";
         statistics dashboard.
       </p>
       <section class="attributes">
-        <Attribute />
-        <Attribute />
-        <Attribute />
+        <Attribute
+          :image="'../assets/svg/icon-brand-recognition.svg'"
+          :header="'Brand Recognition'"
+          :paragrapgh="`Boost your brand recognition with each click. Generic links don’t
+              mean a thing. Branded links help instil confidence in your
+              content.`"
+        />
+        <Attribute
+          :image="'../assets/svg/icon-detailed-records.svg'"
+          :header="'Detailed Records'"
+          :paragrapgh="`Gain insights into who is clicking your links. Knowing when and
+              where people engage with your content helps inform better
+              decisions.`"
+        />
+        <Attribute
+          :image="'../assets/svg/icon-fully-customizable.svg'"
+          :header="'Fully Customizable'"
+          :paragrapgh="`Improve brand awareness and content discoverability through
+              customizable links, supercharging audience engagement.`"
+        />
       </section>
     </section>
   </section>
@@ -53,7 +70,7 @@ import Attribute from "./Attribute.vue";
     justify-content: space-between;
     gap: 2rem;
     align-items: center;
-    margin-top: 100px;
+    margin-top: 60px;
 
     @media (max-width: 800px) {
       flex-direction: column;
