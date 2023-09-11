@@ -5,6 +5,7 @@ import Form from "./components/Form.vue";
 import Advanced from "./components/Advanced.vue";
 import UrlContainer from "./components/UrlContainer.vue";
 import Boost from "./components/Boost.vue";
+import Footer from "./components/Footer.vue";
 </script>
 
 <template>
@@ -14,4 +15,5 @@ import Boost from "./components/Boost.vue";
   <UrlContainer />
   <Advanced />
   <Boost />
+  <Footer />
 </template>
