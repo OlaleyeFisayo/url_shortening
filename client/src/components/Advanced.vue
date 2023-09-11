@@ -46,6 +46,10 @@ import Attribute from "./Attribute.vue";
     margin: auto;
     padding: 1rem 2rem;
 
+    @media (max-width: 560px) {
+      padding: 1rem 1rem;
+    }
+
     .header,
     .details {
       text-align: center;
@@ -70,7 +74,7 @@ import Attribute from "./Attribute.vue";
     justify-content: space-between;
     gap: 2rem;
     align-items: center;
-    margin-top: 60px;
+    margin: 60px 0 80px;
 
     @media (max-width: 800px) {
       flex-direction: column;

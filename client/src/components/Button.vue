@@ -15,17 +15,18 @@ defineProps({
   <button
     :style="{
       'border-radius': borderRadius,
-      'padding': padding,
+      padding: padding,
     }"
   >
-    <slot></slot>
+    <a href="#form">
+      <slot></slot>
+    </a>
   </button>
 </template>
 
 <style lang="scss" scoped>
 button {
   border: none;
-  color: #fff;
   background: hsl(180, 66%, 49%);
   font-size: 1rem;
   font-weight: 600;
@@ -33,9 +34,15 @@ button {
   cursor: pointer;
   margin: auto;
   transition: background ease-in-out 500ms;
+  text-transform: capitalize;
 
   &:hover {
     background: hsl(180, 66%, 70%);
+  }
+
+  a {
+    text-decoration: none;
+    color: #fff;
   }
 }
 </style>

@@ -12,7 +12,7 @@ import Button from "./Button.vue";
           links are performing.
         </p>
         <Button :border-radius="'2rem'" :padding="'15px 45px'"
-          >Get started</Button
+          >Get Started</Button
         >
       </section>
       <section class="img-side">

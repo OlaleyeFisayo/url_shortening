@@ -36,6 +36,10 @@ const { urls } = storeToRefs(store);
     padding: 1rem 2rem;
     height: auto;
     overflow: hidden;
+
+    @media (max-width: 560px) {
+      padding: 1rem 1rem;
+    }
   }
 }
 </style>

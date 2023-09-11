@@ -33,12 +33,16 @@ const formControl = ref({
   width: 100%;
   padding: 0 2rem;
 
+  @media (max-width: 560px) {
+    padding: 0 1rem;
+  }
+
   .form-content {
     width: 100%;
     max-width: 1440px;
     margin: auto;
     padding: 3rem 2rem;
-    background-color: #fff;
+    background-color: #2a233f;
     background-image: url("../assets/svg/bg-shorten-desktop.svg");
     background-position: center;
     background-repeat: no-repeat;
@@ -56,6 +60,10 @@ const formControl = ref({
       align-items: center;
       background-image: url("../assets/svg/bg-shorten-mobile.svg");
       gap: 0;
+    }
+
+    @media (max-width: 560px) {
+      padding: 3rem 1rem;
     }
 
     button {
@@ -98,7 +106,6 @@ const formControl = ref({
         border-radius: 0.5rem;
         outline: none;
         width: 100%;
-        box-shadow: inset 0 0 1px 1px #888;
 
         &::placeholder {
           font-weight: 600;

@@ -4,6 +4,7 @@ import Home from "./components/Home.vue";
 import Form from "./components/Form.vue";
 import Advanced from "./components/Advanced.vue";
 import UrlContainer from "./components/UrlContainer.vue";
+import Boost from "./components/Boost.vue";
 </script>
 
 <template>
@@ -12,4 +13,5 @@ import UrlContainer from "./components/UrlContainer.vue";
   <Form />
   <UrlContainer />
   <Advanced />
+  <Boost />
 </template>
